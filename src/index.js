@@ -1,15 +1,30 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import Login from "./pages/Login";
 import DashBoard from "./pages/DashBoard";
-//import Header from "./components/Header";
-//import SideBar from "./components/SideBar";
+//import GetDataApi from "./services/mockApi";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import reportWebVitals from "./reportWebVitals";
+//<DashBoard></DashBoard>
+
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+/*
+const usersData = new GetDataApi().getUsersData();
+console.log(usersData)*/
+
 root.render(
   <React.StrictMode>
-  <DashBoard></DashBoard>
+    <Router>
+      <Routes>
+      <Route path="/" element={<Login/>}></Route>
+      <Route path="/user/:id" element={<DashBoard/>}></Route>
+ 
+  </Routes>
+    </Router>
   </React.StrictMode>
 );
 

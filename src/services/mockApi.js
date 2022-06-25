@@ -2,6 +2,10 @@
 import{USER_MAIN_DATA,USER_ACTIVITY,USER_AVERAGE_SESSIONS,USER_PERFORMANCE} from '../sportsee_back-end/app/data'
 
 export default class GetDataApi {
+  getUsersData() {
+    return USER_MAIN_DATA;
+  
+  }
  
  getUserData(id) {
     return USER_MAIN_DATA.find((element) => element.id === id);

@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import Login from "./pages/Login";
 import DashBoard from "./pages/DashBoard";
-//import GetDataApi from "./services/mockApi";
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import reportWebVitals from "./reportWebVitals";

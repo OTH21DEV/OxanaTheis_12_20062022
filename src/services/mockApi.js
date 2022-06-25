@@ -8,7 +8,7 @@ export default class GetDataApi {
   }
  
  getUserData(id) {
-    return USER_MAIN_DATA.find((element) => element.id === id);
+    return USER_MAIN_DATA.find((element) => element.id == id);
   
   }
   getUserActivity(id) {

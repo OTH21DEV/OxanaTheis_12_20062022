@@ -1,26 +1,66 @@
+//import { useState } from "react";
 import Header from "../../components/Header";
 import SideBar from "../../components/SideBar";
-import GetDataApi from "../../services/mockApi.js";
-//import { useParams } from "react-router-dom";
+import NutritionData from "../../components/NutritionData";
+import GetDataApi from "../../services/mockApi";
+import { useParams } from "react-router-dom";
+import styled from "styled-components";
+import applaud from "../../assets/applaud-icon.png"
 
+const Tittles = styled.section`
+  h2 {
+    font-size: 0.8em;
+    margin:0;
+    Padding-right:5px;
+    font-weight:400;
+  }
+  img{
+    width:1em;
+    transform: rotate(270deg);
+  }
+  div{
+    display:flex;
+    align-items:center;
+  }
+`;
+const Wrapper = styled.section`
+  display: flex;
+
+`;
+const MainContent = styled.div`
+  margin-left:50px;
+`;
 
 function DashBoard() {
-  
-
-  const userData = new GetDataApi().getUserData(18);
-  const userActivity = new GetDataApi().getUserActivity(18);
-  const userSessions = new GetDataApi().getUserAverageSessions(18);
-  const userPerformance = new GetDataApi().getUserPerformance(18);
-
+  const { id } = useParams();
+  const userData = new GetDataApi().getUserData(id);
   console.log(userData);
+
+  // const userActivity = new GetDataApi().getUserActivity(userId);
+  //const userSessions = new GetDataApi().getUserAverageSessions(18);
+  //const userPerformance = new GetDataApi().getUserPerformance(18);
+
+  /*
   console.log(userActivity);
   console.log(userSessions);
   console.log(userPerformance);
-
+*/
   return (
     <div>
       <Header></Header>
-      <SideBar></SideBar>
+      <Wrapper>
+        <SideBar></SideBar>
+        <MainContent>
+          <Tittles>
+            <h1>Bonjour {userData.userInfos.firstName}</h1>
+            <div>
+            <h2>Félicitation ! Vous avez explosé vos objectifs hier</h2>
+            <img src={applaud} alt=""></img>
+            </div>
+          </Tittles>
+          <NutritionData value ={userData.keyData}></NutritionData>
+        </MainContent>
+      </Wrapper>
     </div>
   );
 }

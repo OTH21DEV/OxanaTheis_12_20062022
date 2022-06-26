@@ -2,16 +2,18 @@
 import Header from "../../components/Header";
 import SideBar from "../../components/SideBar";
 import NutritionData from "../../components/NutritionData";
+import Score from "../../components/Score";
 import GetDataApi from "../../services/mockApi";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import applaud from "../../assets/applaud-icon.png"
 
 const Tittles = styled.section`
+width:100%;
   h2 {
     font-size: 0.8em;
     margin:0;
-    Padding-right:5px;
+    padding-right:5px;
     font-weight:400;
   }
   img{
@@ -29,6 +31,9 @@ const Wrapper = styled.section`
 `;
 const MainContent = styled.div`
   margin-left:50px;
+  width:100%;
+  display:flex;
+  flex-wrap:wrap;
 `;
 
 function DashBoard() {
@@ -36,7 +41,7 @@ function DashBoard() {
   const userData = new GetDataApi().getUserData(id);
   console.log(userData);
 
-  // const userActivity = new GetDataApi().getUserActivity(userId);
+  const userActivity = new GetDataApi().getUserActivity(id);
   //const userSessions = new GetDataApi().getUserAverageSessions(18);
   //const userPerformance = new GetDataApi().getUserPerformance(18);
 
@@ -58,7 +63,9 @@ function DashBoard() {
             <img src={applaud} alt=""></img>
             </div>
           </Tittles>
+          <Score value ={userActivity}></Score>
           <NutritionData value ={userData.keyData}></NutritionData>
+          
         </MainContent>
       </Wrapper>
     </div>

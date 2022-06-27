@@ -7,7 +7,7 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 60px;
+  margin-top: 40px;
 
   img {
     padding-right: 20px;

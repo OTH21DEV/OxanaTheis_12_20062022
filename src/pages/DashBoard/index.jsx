@@ -2,7 +2,7 @@
 import Header from "../../components/Header";
 import SideBar from "../../components/SideBar";
 import NutritionData from "../../components/NutritionData";
-import Score from "../../components/Score";
+import UserActivityChart from "../../components/UserActivityChart";
 import GetDataApi from "../../services/mockApi";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
@@ -34,6 +34,8 @@ const MainContent = styled.div`
   width:100%;
   display:flex;
   flex-wrap:wrap;
+
+ 
 `;
 
 function DashBoard() {
@@ -63,7 +65,7 @@ function DashBoard() {
             <img src={applaud} alt=""></img>
             </div>
           </Tittles>
-          <Score value ={userActivity}></Score>
+          <UserActivityChart value ={userActivity}></UserActivityChart >
           <NutritionData value ={userData.keyData}></NutritionData>
           
         </MainContent>

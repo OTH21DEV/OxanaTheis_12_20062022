@@ -15,9 +15,9 @@ export default class GetDataApi {
     return USER_ACTIVITY.find((element) => element.userId == id);
   }
   getUserAverageSessions(id) {
-    return USER_AVERAGE_SESSIONS.find((element) => element.userId === id);
+    return USER_AVERAGE_SESSIONS.find((element) => element.userId == id);
   }
   getUserPerformance(id) {
-    return USER_PERFORMANCE.find((element) => element.userId === id);
+    return USER_PERFORMANCE.find((element) => element.userId == id);
   }
 }

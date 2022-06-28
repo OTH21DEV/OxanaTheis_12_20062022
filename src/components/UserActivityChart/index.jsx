@@ -98,12 +98,14 @@ function UserActivityChart(props) {
             bottom: 30,
           }}
           barSize={8}
+          
         >
           <CartesianGrid strokeDasharray="3 3" vertical={false} />
-          <XAxis dataKey="day" stroke="#9B9EAC" tickFormatter={getDay} />
+          <XAxis dataKey="day" stroke="#9B9EAC" tickFormatter={getDay}/>
+   
           <YAxis yAxisId="left" orientation="left" stroke="#282D30" axisLine={false} tickLine={false} tick={false} />
           <YAxis domain={["dataMin-5", "dataMax+0"]} yAxisId="right" orientation="right" stroke="#9B9EAC" axisLine={false} tickLine={false} tickCount="3" tickMargin={30} />
-          <Tooltip content={<CustomeTooltip />} />
+          <Tooltip  content={<CustomeTooltip />} />
 
           <Bar radius={[50, 50, 0, 0]} yAxisId="right" dataKey="kilogram" fill="#282D30" />
 

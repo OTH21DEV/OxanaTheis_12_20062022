@@ -25,9 +25,14 @@ const Wrapper = styled.div`
     list-style: none;
     padding: 0;
     margin: 0;
+    padding-right:20px;
   }
   h3 {
-    font-size: 1em;
+    padding-left: 40px;
+
+    font-size: 0.8em;
+
+    font-weight: 400;
   }
 `;
 const Weight = styled.li`
@@ -35,13 +40,14 @@ const Weight = styled.li`
   justify-content: space-between;
   align-items: center;
   color: #74798c;
+  font-size: 0.8em;
   &:before {
     content: ".";
     color: black;
     display: inline-block;
     font-size: 4em;
     margin-right: 5px;
-    margin-bottom: 45px;
+    margin-bottom: 35px;
   }
 `;
 
@@ -50,19 +56,29 @@ const Calories = styled.li`
   justify-content: space-between;
   align-items: center;
   color: #74798c;
+  font-size: 0.8em;
   &:before {
     content: ".";
     color: #e60000;
     display: inline-block;
     font-size: 4em;
     margin-right: 5px;
-    margin-bottom: 45px;
+    margin-bottom: 35px;
   }
 `;
 
 const Activity = styled.section`
   width: 70%;
-  padding-right: 80px;
+  height: 320px;
+  margin-right: 80px;
+  background:#FBFBFB;
+  border-radius:5px;
+
+  margin-top:40px;
+
+  .recharts-responsive-container{
+    margin-left:-20px;
+  }
 `;
 
 function UserActivityChart(props) {
@@ -86,7 +102,7 @@ function UserActivityChart(props) {
         </ul>
       </Wrapper>
 
-      <ResponsiveContainer width="100%" height="40%">
+      <ResponsiveContainer width="100%" height="70%">
         <BarChart
           width={800}
           height={250}
@@ -98,14 +114,13 @@ function UserActivityChart(props) {
             bottom: 30,
           }}
           barSize={8}
-          
         >
           <CartesianGrid strokeDasharray="3 3" vertical={false} />
-          <XAxis dataKey="day" stroke="#9B9EAC" tickFormatter={getDay}/>
-   
+          <XAxis dataKey="day" stroke="#9B9EAC" tickFormatter={getDay} />
+
           <YAxis yAxisId="left" orientation="left" stroke="#282D30" axisLine={false} tickLine={false} tick={false} />
           <YAxis domain={["dataMin-5", "dataMax+0"]} yAxisId="right" orientation="right" stroke="#9B9EAC" axisLine={false} tickLine={false} tickCount="3" tickMargin={30} />
-          <Tooltip  content={<CustomeTooltip />} />
+          <Tooltip content={<CustomeTooltip />} />
 
           <Bar radius={[50, 50, 0, 0]} yAxisId="right" dataKey="kilogram" fill="#282D30" />
 

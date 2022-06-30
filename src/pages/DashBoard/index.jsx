@@ -11,6 +11,11 @@ import applaud from "../../assets/applaud-icon.png"
 
 const Tittles = styled.section`
 width:100%;
+
+h1 {
+  font-size: 2em;
+ 
+}
   h2 {
     font-size: 0.8em;
     margin:0;

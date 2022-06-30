@@ -15,24 +15,28 @@ const ChartTooltip = styled.div`
 
 const Title = styled.h3`
   color: white;
-  font-weight:500;
-  position:absolute;
-
-padding-top:20px;
- width:100px;
-  font-size:0.8em;
-  text-align:start;
+  font-weight: 500;
+  position: absolute;
+  opacity: 0.7;
+  padding-top: 10px;
+  width: 120px;
+  font-size: 0.8em;
+  text-align: start;
   line-height: 24px;
-  z-index:1;
+  z-index: 1;
+  padding-left:30px;
 `;
 const Wrapper = styled.section`
-  width:300px;
-  height:300px;
-  position:relative;
+  width: 258px;
+  height: 260px;
+  position: relative;
   display:flex;
-  justify-content:center;
 
-  
+  border-radius:5px;
+  background-color:#FF0000;
+
+
+
 `;
 function UserSessionsChart(props) {
   console.log(props.value);
@@ -50,28 +54,37 @@ function UserSessionsChart(props) {
 
   return (
     <Wrapper>
-       
       <Title>Durée moyenne des sessions</Title>
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width="100%" height="100%"  >
+    
         <LineChart
-          width={250}
+          width={258}
           height={250}
           data={props.value.sessions}
           margin={{
             top: 5,
             right: 0,
-            left: 0,
-            bottom: 5,
+            left: -53,
+            bottom: 0,
           }}
-         
+          
         >
-          <CartesianGrid strokeDasharray="3 3" vertical={false} horizontal={false} fill="#FF0000" />
-          <XAxis padding={{ left: 15, right: 15 }} tick={{ stroke: "white" }} tickMargin={10} mirror={true} dataKey="day" tickFormatter={getDay} tickLine={false} />
-          <YAxis domain={["dataMin -10", "dataMax+20"]}axisLine={false} tickLine={false} tick={false} />
+          <CartesianGrid strokeDasharray="3 3" vertical={false} horizontal={false} />
+          <XAxis
+            padding={{ left: 5, right: 10 }}
+            tick={{ fontSize: "12px", stroke: "white", strokeOpacity: 0.6, fontWeight: "500" }}
+            tickMargin={10}
+            mirror={true}
+            dataKey="day"
+            tickFormatter={getDay}
+            tickLine={false}
+          />
+          <YAxis domain={["dataMin -23", "dataMax+20"]} axisLine={false} tickLine={false} tick={false} />
           <Tooltip content={<CustomeTooltip />} />
 
-          <Line strokeWidth={2} activeDot={{ r: 5, strokeWidth: 9, strokeOpacity: 0.3 }} padding={0} type="monotone" dataKey="sessionLength" stroke="#FFFFFF" dot={false} />
+          <Line type="natural" strokeWidth={2} activeDot={{ r: 5, strokeWidth: 9, strokeOpacity: 0.3 }} padding={0} dataKey="sessionLength" stroke="#FFFFFF" dot={false} />
         </LineChart>
+      
       </ResponsiveContainer>
     </Wrapper>
   );

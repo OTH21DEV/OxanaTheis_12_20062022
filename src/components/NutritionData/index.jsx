@@ -8,7 +8,10 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   margin-top: 40px;
-
+  background:#FBFBFB;
+  padding:30px;
+  border-radius:5px;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.0212249);
   img {
     padding-right: 20px;
   }

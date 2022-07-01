@@ -4,6 +4,7 @@ import SideBar from "../../components/SideBar";
 import NutritionData from "../../components/NutritionData";
 import UserActivityChart from "../../components/UserActivityChart";
 import UserSessionsChart from "../../components/UserSessionsChart";
+import UserPerformanceChart from "../../components/UserPerformanceChart";
 import GetDataApi from "../../services/mockApi";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
@@ -51,7 +52,7 @@ function DashBoard() {
 
   const userActivity = new GetDataApi().getUserActivity(id);
   const userSessions = new GetDataApi().getUserAverageSessions(id);
-  //const userPerformance = new GetDataApi().getUserPerformance(18);
+  const userPerformance = new GetDataApi().getUserPerformance(id);
 
   /*
   console.log(userActivity);
@@ -74,6 +75,7 @@ function DashBoard() {
           <UserActivityChart value ={userActivity}></UserActivityChart >
           <NutritionData value ={userData.keyData}></NutritionData>
           <UserSessionsChart value ={userSessions} ></UserSessionsChart>
+          <UserPerformanceChart value ={userPerformance}></UserPerformanceChart>
           
         </MainContent>
       </Wrapper>

@@ -5,6 +5,7 @@ import NutritionData from "../../components/NutritionData";
 import UserActivityChart from "../../components/UserActivityChart";
 import UserSessionsChart from "../../components/UserSessionsChart";
 import UserPerformanceChart from "../../components/UserPerformanceChart";
+import UserScore from "../../components/UserScore";
 import GetDataApi from "../../services/mockApi";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
@@ -76,7 +77,7 @@ function DashBoard() {
           <NutritionData value ={userData.keyData}></NutritionData>
           <UserSessionsChart value ={userSessions} ></UserSessionsChart>
           <UserPerformanceChart value ={userPerformance}></UserPerformanceChart>
-          
+          <UserScore value ={userData}></UserScore>
         </MainContent>
       </Wrapper>
     </div>

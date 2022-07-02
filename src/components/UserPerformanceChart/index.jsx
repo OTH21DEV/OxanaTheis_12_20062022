@@ -9,11 +9,7 @@ const Wrapper = styled.section`
   border-radius: 5px;
   background-color: #282d30;
 
-  .recharts-text.recharts-polar-angle-axis-tick-value {
-    tspan {
-      color: white;
-    }
-  }
+ 
 `;
 
 function UserPerfomanceChart(props) {

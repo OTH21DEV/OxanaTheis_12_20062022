@@ -68,18 +68,19 @@ const Wrapper = styled.section`
 
   h3 {
     font-size: 0.8em;
+    color:#20253A;
+   position:absolute;
+   left:30px;
+   top:10px;
   }
-  .recharts-legend-wrapper {
-    left: 105px;
-    bottom: 136px;
-    width: 30px;
-  }
+
 `;
 const Result = styled.div`
   position: absolute;
   display: flex;
+  align-items:center;
   flex-direction: column;
-  top: 156px;
+  top: 105px;
   width: px;
   font-size: 0.7em;
   left: 105px;
@@ -90,32 +91,25 @@ const Result = styled.div`
     color: #74798c;
   }
 `;
+const Percent = styled.p`
+  font-weight:700;
+  color:#282D30;
+  font-size:1.5em;
+`
+
+
 function UserScore(props) {
+
   const scoreValue = [
     { value: 1, fill: "transparent" },
-    { value: props.value.todayScore, fill: "#FF0000" },
+    { value: props.userId === "12" ? props.value.todayScore : props.value.score, fill: "#FF0000" },
   ];
-
-  /*
-          <Legend content={CustomeLegend}  	verticalAlign="middle" layout="vertical"
-                align="center" margin={{bottom:'80px'}}/>
-        */
-  /*
-  const CustomeLegend = ({ payload }) =>
-
-  (
-    <div>
-      <p>{payload[1].payload.value*100}%</p>
-      <p>de votre objectif</p>
-    </div>
-  );
-*/
 
   return (
     <Wrapper>
       <h3>Score</h3>
       <Result>
-        <p>{props.value.todayScore * 100}%</p>
+        <Percent>{props.userId === "12" ? props.value.todayScore * 100 : props.value.score * 100 }% </Percent>
         <p>
           de votre <br />
           objectif

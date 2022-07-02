@@ -70,12 +70,18 @@ const Calories = styled.li`
 const Activity = styled.section`
   width: 70%;
   height: 320px;
-  margin-right: 80px;
+ 
   background:#FBFBFB;
   border-radius:5px;
 
   margin-top:40px;
 
+
+
+  @media screen and (max-width: 1024px) {
+ 
+    width: 100%;
+  }
   .recharts-responsive-container{
     margin-left:-20px;
   }

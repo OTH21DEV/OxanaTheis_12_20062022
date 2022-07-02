@@ -9,43 +9,60 @@ import UserScore from "../../components/UserScore";
 import GetDataApi from "../../services/mockApi";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import applaud from "../../assets/applaud-icon.png"
+import applaud from "../../assets/applaud-icon.png";
 
 const Tittles = styled.section`
-width:100%;
+  width: 100%;
 
-h1 {
-  font-size: 2em;
- 
-}
+  h1 {
+    font-size: 2em;
+  }
   h2 {
     font-size: 0.8em;
-    margin:0;
-    padding-right:5px;
-    font-weight:400;
+    margin: 0;
+    padding-right: 5px;
+    font-weight: 400;
   }
-  img{
-    width:1em;
+  img {
+    width: 1em;
     transform: rotate(270deg);
   }
-  div{
-    display:flex;
-    align-items:center;
+  div {
+    display: flex;
+    align-items: center;
   }
 `;
 const Wrapper = styled.section`
   display: flex;
-
+  position:relative;
 `;
 const MainContent = styled.div`
-  margin-left:50px;
-  width:100%;
+  margin-left: 50px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
+
+  @media screen and (max-width: 1024px) {
+    margin-right: 50px;
+  }
+`;
+const SquaresWrapper = styled.div`
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+`;
+/*
+const Test = styled.div`
+ 
+ 
   display:flex;
-  flex-wrap:wrap;
+ justify-content:space-between;
 
  
 `;
-
+*/
 function DashBoard() {
   const { id } = useParams();
   const userData = new GetDataApi().getUserData(id);
@@ -55,11 +72,6 @@ function DashBoard() {
   const userSessions = new GetDataApi().getUserAverageSessions(id);
   const userPerformance = new GetDataApi().getUserPerformance(id);
 
-  /*
-  console.log(userActivity);
-  console.log(userSessions);
-  console.log(userPerformance);
-*/
   return (
     <div>
       <Header></Header>
@@ -69,16 +81,19 @@ function DashBoard() {
           <Tittles>
             <h1>Bonjour {userData.userInfos.firstName}</h1>
             <div>
-            <h2>Félicitation ! Vous avez explosé vos objectifs hier</h2>
-            <img src={applaud} alt=""></img>
+              <h2>Félicitation ! Vous avez explosé vos objectifs hier</h2>
+              <img src={applaud} alt=""></img>
             </div>
           </Tittles>
-          <UserActivityChart value ={userActivity}></UserActivityChart >
-          <NutritionData value ={userData.keyData}></NutritionData>
-          <UserSessionsChart value ={userSessions} ></UserSessionsChart>
-          <UserPerformanceChart value ={userPerformance}></UserPerformanceChart>
-          <UserScore value ={userData}></UserScore>
+
+          <UserActivityChart value={userActivity}></UserActivityChart>
+          <SquaresWrapper>
+            <UserSessionsChart value={userSessions}></UserSessionsChart>
+            <UserPerformanceChart value={userPerformance}></UserPerformanceChart>
+            <UserScore value={userData} userId={id}></UserScore>
+          </SquaresWrapper>
         </MainContent>
+        <NutritionData value={userData.keyData}></NutritionData>
       </Wrapper>
     </div>
   );

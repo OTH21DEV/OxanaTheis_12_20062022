@@ -16,7 +16,15 @@ const Wrapper = styled.div`
     padding-right: 20px;
   }
 `;
-
+const Container = styled.div`
+position:absolute;
+right:80px;
+top:197px;
+display:flex;
+height:694px;
+justify-content:space-between;
+flex-direction:column;
+`;
 const Titles = styled.div`
   display: flex;
   flex-direction: column;
@@ -36,7 +44,7 @@ function NutritionData(props) {
   const typeOfNutritionData = ["Calories", "Proteines", "Glucides", "Lipides"];
   const icons = [caloris, protein, carbs, fat];
   return (
-    <div>
+    <Container>
       {typeOfNutritionData.map((element, index) => (
         <Wrapper>
           <img src={icons[index]} alt=""></img>
@@ -49,7 +57,8 @@ function NutritionData(props) {
           </Titles>
         </Wrapper>
       ))}
-    </div>
+      </Container>
+  
   );
 }
 export default NutritionData;

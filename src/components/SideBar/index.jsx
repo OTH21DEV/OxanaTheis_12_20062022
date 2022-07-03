@@ -9,9 +9,13 @@ const SideBarContainer = styled.div`
   flex-direction: column;
   background-color: #020203;
   width: 70px;
-  height: 100vh;
+
   align-items: center;
   justify-content: center;
+
+  @media all and (min-width: 375px) and (max-width: 600px) {
+    display: none;
+  }
 `;
 
 const ImgContainer = styled.div`

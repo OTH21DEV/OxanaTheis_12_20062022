@@ -34,25 +34,49 @@ const Tittles = styled.section`
 `;
 const Wrapper = styled.section`
   display: flex;
-  position:relative;
+  position: relative;
 `;
 const MainContent = styled.div`
   margin-left: 50px;
   width: 100%;
   display: flex;
+  flex-direction: column;
+
   flex-wrap: wrap;
-  justify-content: space-between;
+
   position: relative;
 
-  @media screen and (max-width: 1024px) {
-    margin-right: 50px;
+  @media all and (min-width: 375px) and (max-width:1300px){
+    margin-left: 10px;
+    margin-right: 10px;
   }
 `;
 const SquaresWrapper = styled.div`
   width: 70%;
   display: flex;
   justify-content: space-between;
+
+  @media all and (min-width: 375px) and (max-width:1300px){
+    flex-wrap: wrap;
+    margin-top: 30px;
+    width: 100%;
+    justify-content: start;
+  }
 `;
+
+const Test = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 642px;
+  justify-content: space-between;
+
+  @media all and (min-width: 375px) and (max-width:1300px){
+    width: 100%;
+    height: inherit;
+  }
+`;
+
 /*
 const Test = styled.div`
  
@@ -74,6 +98,8 @@ function DashBoard() {
 
   return (
     <div>
+      
+
       <Header></Header>
       <Wrapper>
         <SideBar></SideBar>
@@ -85,15 +111,16 @@ function DashBoard() {
               <img src={applaud} alt=""></img>
             </div>
           </Tittles>
-
-          <UserActivityChart value={userActivity}></UserActivityChart>
-          <SquaresWrapper>
-            <UserSessionsChart value={userSessions}></UserSessionsChart>
-            <UserPerformanceChart value={userPerformance}></UserPerformanceChart>
-            <UserScore value={userData} userId={id}></UserScore>
-          </SquaresWrapper>
+          <Test>
+            <UserActivityChart value={userActivity}></UserActivityChart>
+            <SquaresWrapper>
+              <UserSessionsChart value={userSessions}></UserSessionsChart>
+              <UserPerformanceChart value={userPerformance}></UserPerformanceChart>
+              <UserScore value={userData} userId={id}></UserScore>
+            </SquaresWrapper>
+            <NutritionData value={userData.keyData}></NutritionData>
+          </Test>
         </MainContent>
-        <NutritionData value={userData.keyData}></NutritionData>
       </Wrapper>
     </div>
   );

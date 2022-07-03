@@ -9,6 +9,11 @@ const Wrapper = styled.section`
   border-radius: 5px;
   background-color: #282d30;
 
+  @media all and (min-width: 375px) and (max-width:1300px) {
+
+    margin-bottom:10px;
+    margin-right:10px;
+      }
  
 `;
 

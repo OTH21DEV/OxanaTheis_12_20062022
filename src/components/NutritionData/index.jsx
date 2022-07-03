@@ -12,18 +12,31 @@ const Wrapper = styled.div`
   padding:30px;
   border-radius:5px;
   box-shadow: 0px 2px 4px rgba(0,0,0,0.0212249);
+
   img {
     padding-right: 20px;
   }
+
+  @media all and (min-width: 375px) and (max-width:484px) {
+  
+   width:100%;
+      }
+
+      @media all and (min-width: 484px) and (max-width:1300px) {
+  margin-right:10px;
+        width:35%;
+           }
 `;
+
 const Container = styled.div`
-position:absolute;
-right:80px;
-top:197px;
+width:25%;
+
+@media all and (min-width: 375px) and (max-width:1300px) {
+width:100%;
 display:flex;
-height:694px;
-justify-content:space-between;
-flex-direction:column;
+flex-wrap:wrap;
+  }
+
 `;
 const Titles = styled.div`
   display: flex;

@@ -76,12 +76,11 @@ const Activity = styled.section`
 
   margin-top:40px;
 
+  @media all and (min-width: 375px) and (max-width:1300px){
+    width:100%;
+    }
 
 
-  @media screen and (max-width: 1024px) {
- 
-    width: 100%;
-  }
   .recharts-responsive-container{
     margin-left:-20px;
   }

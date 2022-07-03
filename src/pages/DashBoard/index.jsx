@@ -1,4 +1,4 @@
-//import { useState } from "react";
+
 import Header from "../../components/Header";
 import SideBar from "../../components/SideBar";
 import NutritionData from "../../components/NutritionData";
@@ -6,10 +6,12 @@ import UserActivityChart from "../../components/UserActivityChart";
 import UserSessionsChart from "../../components/UserSessionsChart";
 import UserPerformanceChart from "../../components/UserPerformanceChart";
 import UserScore from "../../components/UserScore";
+import Error from "../../components/Error"
 import GetDataApi from "../../services/mockApi";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import applaud from "../../assets/applaud-icon.png";
+
 
 const Tittles = styled.section`
   width: 100%;
@@ -96,6 +98,11 @@ function DashBoard() {
   const userSessions = new GetDataApi().getUserAverageSessions(id);
   const userPerformance = new GetDataApi().getUserPerformance(id);
 
+
+  if (!userData) {
+    return <Error />;
+  }
+
   return (
     <div>
       
@@ -105,7 +112,8 @@ function DashBoard() {
         <SideBar></SideBar>
         <MainContent>
           <Tittles>
-            <h1>Bonjour {userData.userInfos.firstName}</h1>
+            <h1>Bonjour {""}
+              { <span style={{color:"#FF0101"}}>{ userData.userInfos.firstName}</span>}</h1>
             <div>
               <h2>Félicitation ! Vous avez explosé vos objectifs hier</h2>
               <img src={applaud} alt=""></img>

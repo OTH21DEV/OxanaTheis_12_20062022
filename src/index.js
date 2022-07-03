@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import Login from "./pages/Login";
 import DashBoard from "./pages/DashBoard";
-
+import Error from "./components/Error"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import reportWebVitals from "./reportWebVitals";
@@ -22,7 +22,7 @@ root.render(
       <Routes>
       <Route path="/" element={<Login/>}></Route>
       <Route path="/user/:id" element={<DashBoard/>}></Route>
- 
+      <Route path="*" element={<Error />}></Route>
   </Routes>
     </Router>
   </React.StrictMode>

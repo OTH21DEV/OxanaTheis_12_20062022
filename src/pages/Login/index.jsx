@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import GetDataApi from "../../services/mockApi";
 import { useState } from "react";
-//background: linear-gradient(to bottom right, #ff0101, #f2f2f2);
+
 const Wrapper = styled.div`
   background: linear-gradient(to bottom right, #161616, #f2f2f2);
   height: 100vh;
@@ -15,15 +15,14 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
   min-height: 30vh;
 `;
+
 const CardWrapper = styled.div`
   position: absolute;
   top: 50%;
   width: 310px;
   height: 370px;
-
   box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
   border-radius: 15px;
   border-top: 1px solid rgba(255, 255, 255, 0.5);
@@ -32,19 +31,12 @@ const CardWrapper = styled.div`
   backdrop-filter: blur(5px);
   overflow: hidden;
 `;
+
 const Content = styled.div`
   margin: 0px 20px;
   height: 100%;
 `;
-/*
-input{
-  width: 100%;
-  height: 40px;
-  background: transparent;
-  outline:none;
 
-
-}*/
 const Form = styled.form`
   height: 100%;
 
@@ -54,22 +46,23 @@ const Form = styled.form`
     background: transparent;
     outline: none;
     border: 0px;
-    position:relative;
-   
+    position: relative;
   }
 `;
+
 const InputBox = styled.div`
   display: flex;
   flex-direction: column;
-
   justify-content: space-between;
 `;
+
 const TitleSignIn = styled.h1`
   font-size: 1.3em;
   padding-top: 35px;
   color: white;
   font-weight: 500;
 `;
+
 const TitleSignUp = styled.h1`
   font-size: 1.3em;
   padding-top: 35px;
@@ -77,25 +70,17 @@ const TitleSignUp = styled.h1`
   font-weight: 500;
   opacity: 0.8;
 `;
+
 const TitleWrapper = styled.div`
   display: flex;
   justify-content: space-between;
 `;
-/*
-const Input = styled.div`
-  width: 100%;
-  height: 40px;
-  background: transparent;
-`;
-*/
+
 const Label = styled.div`
   border: none;
   border-top: 0.4px solid #ff0101;
   color: white;
   transition: 0.6s;
-
-
-
 `;
 
 const Submit = styled.button`
@@ -109,13 +94,19 @@ const Submit = styled.button`
   margin-top: 40px;
   cursor: pointer;
 `;
+
 const ForgotPass = styled.a`
   text-align: center;
   color: #ff0101;
   text-decoration: none;
   margin-top: 20px;
 `;
-// <Link to={`/user/`}> <Submit value="Login">SIGN IN</Submit></Link>
+
+/**
+ * Display login page 
+ * @returns {JSX}
+ */
+
 function Login() {
   const usersData = new GetDataApi().getUsersData();
   console.log(usersData);
@@ -124,6 +115,11 @@ function Login() {
   console.log(inputValue);
 
   let navigate = useNavigate();
+
+  /**
+   * Change page - load dashboardpage if id exist
+   */
+
   const routeChange = () => {
     let path = `/user/${inputValue}`;
     navigate(path);

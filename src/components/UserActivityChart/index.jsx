@@ -1,5 +1,5 @@
-import React, { PureComponent } from "react";
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+import React from "react";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import styled from "styled-components";
 
 const ChartTooltip = styled.div`
@@ -12,6 +12,7 @@ const ChartTooltip = styled.div`
   width: 45px;
   height: 63px;
 `;
+
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -25,22 +26,23 @@ const Wrapper = styled.div`
     list-style: none;
     padding: 0;
     margin: 0;
-    padding-right:20px;
+    padding-right: 20px;
   }
+
   h3 {
     padding-left: 40px;
-
     font-size: 0.8em;
-
     font-weight: 400;
   }
 `;
+
 const Weight = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: #74798c;
   font-size: 0.8em;
+
   &:before {
     content: ".";
     color: black;
@@ -57,6 +59,7 @@ const Calories = styled.li`
   align-items: center;
   color: #74798c;
   font-size: 0.8em;
+
   &:before {
     content: ".";
     color: #e60000;
@@ -70,24 +73,42 @@ const Calories = styled.li`
 const Activity = styled.section`
   width: 70%;
   height: 320px;
- 
-  background:#FBFBFB;
-  border-radius:5px;
+  background: #fbfbfb;
+  border-radius: 5px;
+  margin-top: 40px;
 
-  margin-top:40px;
+  @media all and (min-width: 375px) and (max-width: 1300px) {
+    width: 100%;
+  }
 
-  @media all and (min-width: 375px) and (max-width:1300px){
-    width:100%;
-    }
-
-
-  .recharts-responsive-container{
-    margin-left:-20px;
+  .recharts-responsive-container {
+    margin-left: -20px;
   }
 `;
 
+/**
+ * Display user activity chart
+ * @param {Object.<value: Object>} props
+ * @param {Object.<userId: Number, sessions: Array.<{day:String, kilogram: Number, calories: Number}> } props.value
+ * @returns
+ */
+
 function UserActivityChart(props) {
+
+  /**
+   * Get just a day from complete date
+   * @param {String} day
+   * @returns {String}
+   */
   const getDay = (day) => new Date(day).getDate();
+
+  /**
+   * Customise tooltip
+   *
+   * @param {Boolean} active Active with inital value of false / becomes true when hover on barchart
+   * @param {Array} payload Payload contains data to be displayed on hover
+   * @returns {JSX || null}
+   */
 
   const CustomeTooltip = ({ active, payload }) =>
     active ? (

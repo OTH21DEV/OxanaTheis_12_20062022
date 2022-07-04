@@ -24,29 +24,46 @@ const Title = styled.h3`
   text-align: start;
   line-height: 24px;
   z-index: 1;
-  padding-left:30px;
+  padding-left: 30px;
 `;
 const Wrapper = styled.section`
   width: 258px;
   height: 260px;
   position: relative;
-  display:flex;
+  display: flex;
+  border-radius: 5px;
+  background-color: #ff0000;
 
-  border-radius:5px;
-  background-color:#FF0000;
-
-  @media all and (min-width: 375px) and (max-width:1300px) {
-    margin-right:10px;
-    margin-bottom:10px;
-      }
-
+  @media all and (min-width: 375px) and (max-width: 1300px) {
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
 `;
+
+/**
+ * Display user sessions chart
+ * @param {Object.<value: Object>} props
+ * @param {Object.<sessions: Array.<Object>, userId: Number} props.value
+ * @returns {JSX}
+ */
+
 function UserSessionsChart(props) {
-  console.log(props.value);
+
+  /**
+   * Change the number of day from json on name of weeks
+   * @param {Number} day
+   * @returns {String}
+   */
 
   const Days = ["L", "M", "M", "J", "V", "S", "D"];
-
   const getDay = (day) => Days[day - 1];
+
+  /**
+   * Customise tooltip
+   * @param {Boolean} active Active with inital value of false / becomes true when hover on linechart
+   * @param {Array} payload Payload contains data to be displayed on hover
+   * @returns {JSX || null}
+   */
 
   const CustomeTooltip = ({ active, payload }) =>
     active ? (
@@ -58,8 +75,7 @@ function UserSessionsChart(props) {
   return (
     <Wrapper>
       <Title>Durée moyenne des sessions</Title>
-      <ResponsiveContainer width="100%" height="100%"  >
-    
+      <ResponsiveContainer width="100%" height="100%">
         <LineChart
           width={258}
           height={250}
@@ -70,7 +86,6 @@ function UserSessionsChart(props) {
             left: -53,
             bottom: 0,
           }}
-          
         >
           <CartesianGrid strokeDasharray="3 3" vertical={false} horizontal={false} />
           <XAxis
@@ -87,7 +102,6 @@ function UserSessionsChart(props) {
 
           <Line type="natural" strokeWidth={2} activeDot={{ r: 5, strokeWidth: 9, strokeOpacity: 0.3 }} padding={0} dataKey="sessionLength" stroke="#FFFFFF" dot={false} />
         </LineChart>
-      
       </ResponsiveContainer>
     </Wrapper>
   );

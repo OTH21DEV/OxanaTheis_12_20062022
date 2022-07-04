@@ -21,6 +21,12 @@ const NavLink = styled.a`
   color: white;
   cursor:pointer;
 `;
+
+/**
+ * Display header
+ * @returns {JSX}
+ */
+
 function Header() {
   return (
     <NavContainer>

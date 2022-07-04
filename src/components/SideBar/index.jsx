@@ -9,7 +9,6 @@ const SideBarContainer = styled.div`
   flex-direction: column;
   background-color: #020203;
   width: 70px;
-
   align-items: center;
   justify-content: center;
 
@@ -36,6 +35,12 @@ const Copyright = styled.p`
   width: 60vh;
   font-size: 0.7em;
 `;
+
+/**
+ * Display sidebar
+ * @returns {JSX}
+ */
+
 function SideBar() {
   return (
     <SideBarContainer>

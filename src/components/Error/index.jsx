@@ -23,11 +23,7 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
- 
-   margin-left:40px;
-
-
-  
+    margin-left:40px;
 
     @media all and (min-width: 375px) and (max-width: 890px) {
       margin-left: 20px;
@@ -36,8 +32,8 @@ const Wrapper = styled.div`
     p {
       font-size: 1.7em;
       color:#282D30;
-
     }
+
     a {
       text-decoration: none;
       background: #ff0101;
@@ -49,17 +45,20 @@ const Wrapper = styled.div`
       align-items: center;
       color: white;
 
-
       @media all and (min-width: 375px) and (max-width: 890px) {
         position:absolute;
         bottom:40px;
         align-self:center;
       }
-
     }
-   
-  
 `;
+
+/**
+ * Display error page
+ *
+ * @returns {JSX}
+ */
+
 function Error() {
   return (
     <Wrapper>
@@ -71,7 +70,6 @@ function Error() {
           <br /> <br />
           La page que vous demandez n'existe pas.
         </p>
-
         <Link to="/" className="title-link">
           ACCUEIL
         </Link>

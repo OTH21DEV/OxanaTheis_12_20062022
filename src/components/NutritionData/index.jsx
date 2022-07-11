@@ -3,7 +3,7 @@ import carbs from "../../assets/carbs-icon.svg";
 import fat from "../../assets/fat-icon.svg";
 import protein from "../../assets/protein-icon.svg";
 import styled from "styled-components";
-//import propTypes from 'prop-types';
+import propTypes from 'prop-types';
 
 const Wrapper = styled.div`
   display: flex;
@@ -69,7 +69,7 @@ function NutritionData(props) {
     <Container>
       {typeOfNutritionData.map((element, index) => (
         <Wrapper>
-          <img src={icons[index]} alt=""></img>
+          <img src={icons[index]} alt="" key={index}></img>
           <Titles>
             <h3>
               {Object.values(props.value)[index]}
@@ -82,9 +82,9 @@ function NutritionData(props) {
     </Container>
   );
 }
-/*
+
 NutritionData.propTypes = {
-props:propTypes.object.isRequired
+props:propTypes.object
 }
-*/
+
 export default NutritionData;

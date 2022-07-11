@@ -10,6 +10,7 @@ import GetDataApi from "../../services/mockApi";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import applaud from "../../assets/applaud-icon.png";
+import React, { useState } from "react";
 
 const Tittles = styled.section`
   width: 100%;
@@ -87,11 +88,40 @@ const Test = styled.div`
  */
 
 function DashBoard() {
-  const { id } = useParams();
-  const userData = new GetDataApi().getUserData(id);
-  const userActivity = new GetDataApi().getUserActivity(id);
-  const userSessions = new GetDataApi().getUserAverageSessions(id);
-  const userPerformance = new GetDataApi().getUserPerformance(id);
+  let { id } = useParams();
+  id = parseInt(id);
+
+  const [userData, setUserData] = useState();
+  const [userActivity, setUserActivity] = useState();
+  const [userSessions, setUserSessions] = useState();
+  const [userPerformance, setUserPerformance] = useState();
+
+  
+
+  /**
+   * Creates a promise that works with the fact that we need to await the axios response first
+   */
+
+  let data = new GetDataApi(id);
+  console.log(data);
+  
+  data.getData().then(() => {
+    setUserData(data.userData);
+    setUserActivity(data.userActivity);
+    setUserSessions(data.userSessions);
+    setUserPerformance(data.userPerformance);
+    console.log(data.userData);
+  });
+
+  // const userData = new GetDataApi(id).userData;
+  //  const userActivity = new GetDataApi(id).userActivity;
+  // const userSessions = new GetDataApi(id).userSessions;
+  //const userPerformance = new GetDataApi(id).userPerformance;
+
+  //
+
+  console.log(userData);
+  console.log(userActivity);
 
   if (!userData) {
     return <Error />;

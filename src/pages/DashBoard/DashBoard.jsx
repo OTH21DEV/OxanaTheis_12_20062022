@@ -1,16 +1,16 @@
-import Header from "../../components/Header";
-import SideBar from "../../components/SideBar";
-import NutritionData from "../../components/NutritionData";
-import UserActivityChart from "../../components/UserActivityChart";
-import UserSessionsChart from "../../components/UserSessionsChart";
-import UserPerformanceChart from "../../components/UserPerformanceChart";
-import UserScore from "../../components/UserScore";
-import Error from "../../components/Error";
-import GetDataApi from "../../services/mockApi";
+import Header from "../../components/Header/Header";
+import SideBar from "../../components/SideBar/SideBar";
+import NutritionData from "../../components/NutritionData/NutritionData";
+import UserActivityChart from "../../components/UserActivityChart/UserActivityChart";
+import UserSessionsChart from "../../components/UserSessionsChart/UserSessionsChart";
+import UserPerformanceChart from "../../components/UserPerformanceChart/UserPerformanceChart";
+import UserScore from "../../components/UserScore/UserScore";
+import Error from "../../components/Error/Error";
+import GetData from "../../services/services";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import applaud from "../../assets/applaud-icon.png";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Tittles = styled.section`
   width: 100%;
@@ -96,35 +96,28 @@ function DashBoard() {
   const [userSessions, setUserSessions] = useState();
   const [userPerformance, setUserPerformance] = useState();
 
-  
-
   /**
+   *
    * Creates a promise that works with the fact that we need to await the axios response first
    */
 
-  let data = new GetDataApi(id);
-  console.log(data);
-  
-  data.getData().then(() => {
-    setUserData(data.userData);
-    setUserActivity(data.userActivity);
-    setUserSessions(data.userSessions);
-    setUserPerformance(data.userPerformance);
-    console.log(data.userData);
-  });
+  let data = new GetData(id);
 
-  // const userData = new GetDataApi(id).userData;
-  //  const userActivity = new GetDataApi(id).userActivity;
-  // const userSessions = new GetDataApi(id).userSessions;
-  //const userPerformance = new GetDataApi(id).userPerformance;
+  useEffect(() => {
+    data.getData().then(async () => {
+      setUserData(data.userData);
+      setUserActivity(data.userActivity);
+      setUserSessions(data.userSessions);
+      setUserPerformance(data.userPerformance);
 
-  //
+    });
+  }, []);
 
-  console.log(userData);
-  console.log(userActivity);
+  let pathArray = window.location.pathname.split("/");
+  let pathId = pathArray[2];
 
-  if (!userData) {
-    return <Error />;
+  if (!userData || pathId != id) {
+    return <Error></Error>;
   }
 
   return (

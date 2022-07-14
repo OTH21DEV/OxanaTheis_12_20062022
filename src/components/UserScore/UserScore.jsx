@@ -24,6 +24,7 @@ const Wrapper = styled.section`
     top: 10px;
   }
 `;
+
 const Result = styled.div`
   position: absolute;
   display: flex;
@@ -40,6 +41,7 @@ const Result = styled.div`
     color: #74798c;
   }
 `;
+
 const Percent = styled.p`
   font-weight: 700;
   color: #282d30;
@@ -60,14 +62,14 @@ function UserScore(props) {
 
   const scoreValue = [
     { value: 1, fill: "transparent" },
-    { value: props.userId === "12" ? props.value.todayScore : props.value.score, fill: "#FF0000" },
+    { value: props.userId === 12 ? props.value.todayScore : props.value.score, fill: "#FF0000" },
   ];
 
   return (
     <Wrapper>
       <h3>Score</h3>
       <Result>
-        <Percent>{props.userId === "12" ? props.value.todayScore * 100 : props.value.score * 100}% </Percent>
+        <Percent>{props.userId === 12 ? props.value.todayScore * 100 : props.value.score * 100}% </Percent>
         <p>
           de votre <br />
           objectif

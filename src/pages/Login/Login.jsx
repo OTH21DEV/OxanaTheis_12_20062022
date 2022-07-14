@@ -1,7 +1,6 @@
 import logo from "../../assets/logo.svg";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import GetDataApi from "../../services/mockApi";
 import { useState } from "react";
 
 const Wrapper = styled.div`
@@ -103,17 +102,12 @@ const ForgotPass = styled.a`
 `;
 
 /**
- * Display login page 
+ * Display login page
  * @returns {JSX}
  */
 
 function Login() {
-  const usersData = new GetDataApi().getUsersData();
-  console.log(usersData);
-
   const [inputValue, setInputValue] = useState();
-  console.log(inputValue);
-
   let navigate = useNavigate();
 
   /**
@@ -121,6 +115,8 @@ function Login() {
    */
 
   const routeChange = () => {
+    //setIsLoading(!isLoading);
+
     let path = `/user/${inputValue}`;
     navigate(path);
   };
@@ -161,5 +157,7 @@ function Login() {
       </Wrapper>
     </section>
   );
+
+  
 }
 export default Login;

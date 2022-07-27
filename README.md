@@ -53,7 +53,7 @@ https://kasa-oxanatheis.netlify.app/
 ## Technologies:
 
 - HTML
-- CSS
+- CSS (Styled Components)
 - Javascript
 - React
 - Recharts

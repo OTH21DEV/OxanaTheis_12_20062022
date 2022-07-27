@@ -1,4 +1,5 @@
-[![forthebadge](https://forthebadge.com/images/badges/validated-html5.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/uses-css.svg)](https://forthebadge.com)
+
+[![VALIDATED - HTML5](https://img.shields.io/badge/VALIDATED-HTML5-A8000E?style=for-the-badge)](https://) [![MADE WITH - JAVASCRIPT](https://img.shields.io/badge/MADE_WITH-JAVASCRIPT-1D75C2?style=for-the-badge)](https://) [![STYLED - CSS](https://img.shields.io/badge/STYLED-CSS-E034BE?style=for-the-badge)](https://) [![USES - RECHARTS](https://img.shields.io/badge/USES-RECHARTS-red?style=for-the-badge)](https://) [![BUILT WITH - REACT](https://img.shields.io/badge/BUILT_WITH-REACT-4F28B0?style=for-the-badge)](https://)
 
 # SportSee - front-end web development using Recharts
 

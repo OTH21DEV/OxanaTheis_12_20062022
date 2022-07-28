@@ -1,6 +1,7 @@
 import React from "react";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from "recharts";
 import styled from "styled-components";
+import propTypes from "prop-types";
 
 const Wrapper = styled.section`
   width: 258px;
@@ -16,12 +17,17 @@ const Wrapper = styled.section`
 
 /**
  * Display user perfomance chart
- * @param {Object.<value: Object>} props
- * @param {Object.<userId: Number, kind: Object, data: Array.<Object>} props.value
+ * @param {Object} props
+ * @param {Object} props.value
+ * @param {Number} props.value.userId
+ * @param {Objet} props.value.kind
+ * @param {Array{}} props.value.data
+ * @param {Number} props.value.data[].value
+ * @param {Number} props.value.data[].kind
  * @returns {JSX}
  */
-
 function UserPerfomanceChart(props) {
+  console.log(props);
   const angleStart = 210;
 
   /**
@@ -51,16 +57,18 @@ function UserPerfomanceChart(props) {
           <PolarGrid />
           <PolarAngleAxis tickFormatter={changeNameKind} tick={{ fill: "#FFFFFF", fontSize: "0.7em" }} dataKey="kind" />
 
-          <Radar
-            name="Mike"
-            dataKey="value"
-            fill="#FF0101
-"
-            fillOpacity={0.6}
-          />
+          <Radar name="Mike" dataKey="value" fill="#FF0101" fillOpacity={0.6} />
         </RadarChart>
       </ResponsiveContainer>
     </Wrapper>
   );
 }
+
+UserPerfomanceChart.propTypes = {
+  values: propTypes.shape({
+    data: propTypes.array.isRequired,
+    kind: propTypes.object.isRequired,
+  }),
+};
+
 export default UserPerfomanceChart;

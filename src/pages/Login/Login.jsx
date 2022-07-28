@@ -105,7 +105,6 @@ const ForgotPass = styled.a`
  * Display login page
  * @returns {JSX}
  */
-
 function Login() {
   const [inputValue, setInputValue] = useState();
   let navigate = useNavigate();
@@ -113,10 +112,7 @@ function Login() {
   /**
    * Change page - load dashboardpage if id exist
    */
-
   const routeChange = () => {
-    //setIsLoading(!isLoading);
-
     let path = `/user/${inputValue}`;
     navigate(path);
   };
@@ -157,7 +153,5 @@ function Login() {
       </Wrapper>
     </section>
   );
-
-  
 }
 export default Login;

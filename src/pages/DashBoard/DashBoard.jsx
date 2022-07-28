@@ -100,7 +100,6 @@ function DashBoard() {
    *
    * Creates a promise that works with the fact that we need to await the axios response first
    */
-
   let data = new GetData(id);
 
   useEffect(() => {

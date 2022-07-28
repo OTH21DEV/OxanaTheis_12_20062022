@@ -3,7 +3,7 @@ import carbs from "../../assets/carbs-icon.svg";
 import fat from "../../assets/fat-icon.svg";
 import protein from "../../assets/protein-icon.svg";
 import styled from "styled-components";
-import propTypes from 'prop-types';
+import propTypes from "prop-types";
 
 const Wrapper = styled.div`
   display: flex;
@@ -54,28 +54,32 @@ const Titles = styled.div`
   }
 `;
 
+
 /**
  * Display nutrition data of user
- * @param {Object.<value: Object>} props
- * @param {Object.<caloriCount: Number, carbohydrateCount: Number, lipidCount: Number, proteineCount: Number>} props.value 
+ * @param {Object} props
+ * @param {Object} props.value
+ * @param {Number} props.value.caloriCount
+ * @param {Number} props.value.carbohydrateCount
+ * @param {Number} props.value.lipidCount
+ * @param {Number} props.value.proteineCount
  * @returns {JSX}
  */
-
 function NutritionData(props) {
-
+ 
   const typeOfNutritionData = ["Calories", "Proteines", "Glucides", "Lipides"];
   const icons = [caloris, protein, carbs, fat];
   return (
     <Container>
       {typeOfNutritionData.map((element, index) => (
-        <Wrapper>
-          <img src={icons[index]} alt="" key={index}></img>
+        <Wrapper key={element.toString()}>
+          <img src={icons[index]} alt=""></img>
           <Titles>
             <h3>
-              {Object.values(props.value)[index]}
+              {Object.values(props.value)[index] }
               {index === 0 ? "kCal" : "g"}
             </h3>
-            <h4>{element}</h4>
+            <h4 >{element}</h4>
           </Titles>
         </Wrapper>
       ))}
@@ -84,7 +88,13 @@ function NutritionData(props) {
 }
 
 NutritionData.propTypes = {
-props:propTypes.object
-}
+ 
+  values: propTypes.shape({
+    caloriCount: propTypes.number.isRequired,
+    carbohydrateCount: propTypes.number.isRequired,
+    lipidCount: propTypes.number.isRequired,
+    proteineCount: propTypes.number.isRequired,
+  }),
+};
 
 export default NutritionData;

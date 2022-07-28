@@ -1,6 +1,7 @@
 import React from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import styled from "styled-components";
+import propTypes from "prop-types";
 
 const ChartTooltip = styled.div`
   display: flex;
@@ -88,13 +89,17 @@ const Activity = styled.section`
 
 /**
  * Display user activity chart
- * @param {Object.<value: Object>} props
- * @param {Object.<userId: Number, sessions: Array.<{day:String, kilogram: Number, calories: Number}> } props.value
- * @returns
+ * @param {Object} props
+ * @param {Object} props.value
+ * @param {Number} props.value.userId
+ * @param {Array} props.value.sessions
+ * @param {String} props.value.sessions[].day
+ * @param {Number} props.value.sessions[].kilogram
+ * @param {Number} props.value.sessions[].calories
+ * @returns {JSX}
  */
-
 function UserActivityChart(props) {
-
+ 
   /**
    * Get just a day from complete date
    * @param {String} day
@@ -109,7 +114,6 @@ function UserActivityChart(props) {
    * @param {Array} payload Payload contains data to be displayed on hover
    * @returns {JSX || null}
    */
-
   const CustomeTooltip = ({ active, payload }) =>
     active ? (
       <ChartTooltip>
@@ -156,4 +160,14 @@ function UserActivityChart(props) {
     </Activity>
   );
 }
+
+UserActivityChart.propTypes = {
+  values: propTypes.shape({
+    sessions: propTypes.array.isRequired,
+    day: propTypes.string.isRequired,
+    kilogram: propTypes.number.isRequired,
+    calories: propTypes.number.isRequired,
+  }),
+};
+
 export default UserActivityChart;

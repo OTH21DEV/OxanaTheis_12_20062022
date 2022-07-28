@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import React from "react";
-//import PropTypes from "prop-types";
+import propTypes from "prop-types";
+
 
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 
@@ -50,11 +51,14 @@ const Percent = styled.p`
 
 /**
  * Display user score chart
- * @param {Object.<userId: String, value: Object} props
- * @param {Object.<id: Number, keyData: Object, todayScore: Number, userInfos: Object> } props.value
+ * @param {Object} props
+ * @param {Number} props.userId
+ * @param {Object} props.value
+ * @param {Number} props.value.id
+ * @param {Number} props.value.todayScore
+ * @param {Number} props.value.score
  * @returns {JSX}
  */
-
 function UserScore(props) {
   /**
    * Set daily score as 100% in the aim to be able to compare with user score
@@ -87,4 +91,15 @@ function UserScore(props) {
     </Wrapper>
   );
 }
+
+UserScore.propTypes = {
+ 
+  values: propTypes.shape({
+    id: propTypes.number.isRequired,
+    todayScore: propTypes.number.isRequired,
+    score: propTypes.number.isRequired,
+  }),
+};
+
+
 export default UserScore;

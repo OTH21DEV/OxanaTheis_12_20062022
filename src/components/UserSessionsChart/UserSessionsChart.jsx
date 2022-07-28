@@ -1,6 +1,7 @@
 import React from "react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import styled from "styled-components";
+import propTypes from "prop-types";
 
 const ChartTooltip = styled.div`
   display: flex;
@@ -42,17 +43,19 @@ const Wrapper = styled.section`
 
 /**
  * Display user sessions chart
- * @param {Object.<value: Object>} props
- * @param {Object.<sessions: Array.<Object>, userId: Number} props.value
+ * @param {Object} props
+ * @param {Object} props.value
+ * @param {Array{}} props.value.sessions
+ * @param {Number} props.value.sessions[].day
+ * @param {Number} props.value.sessions[].sessionLength
  * @returns {JSX}
  */
-
 function UserSessionsChart(props) {
-
+  console.log(props);
   /**
    * Change the number of day from json on name of weeks
    * @param {Number} day
-   * @returns {String}
+   * @returns {Number}
    */
 
   const Days = ["L", "M", "M", "J", "V", "S", "D"];
@@ -81,7 +84,6 @@ function UserSessionsChart(props) {
           height={250}
           data={props.value.sessions}
           margin={{
-            top: 5,
             right: 0,
             left: -53,
             bottom: 0,
@@ -98,7 +100,14 @@ function UserSessionsChart(props) {
             tickLine={false}
           />
           <YAxis domain={["dataMin -23", "dataMax+20"]} axisLine={false} tickLine={false} tick={false} />
-          <Tooltip content={<CustomeTooltip />} />
+          <Tooltip
+            content={<CustomeTooltip />}
+            cursor={{
+              stroke: `black`,
+              strokeOpacity: 0.1,
+              strokeWidth: "60",
+            }}
+          />
 
           <Line type="natural" strokeWidth={2} activeDot={{ r: 5, strokeWidth: 9, strokeOpacity: 0.3 }} padding={0} dataKey="sessionLength" stroke="#FFFFFF" dot={false} />
         </LineChart>
@@ -106,4 +115,14 @@ function UserSessionsChart(props) {
     </Wrapper>
   );
 }
+
+UserSessionsChart.propTypes = {
+  sessions: propTypes.shape({
+    day: propTypes.number.isRequired,
+    sessionLength: propTypes.number.isRequired,
+  }),
+};
+
+
+
 export default UserSessionsChart;

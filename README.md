@@ -1,74 +1,62 @@
-<<<<<<< HEAD
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![VALIDATED - HTML5](https://img.shields.io/badge/VALIDATED-HTML5-A8000E?style=for-the-badge)](https://) [![MADE WITH - JAVASCRIPT](https://img.shields.io/badge/MADE_WITH-JAVASCRIPT-1D75C2?style=for-the-badge)](https://) [![STYLED - CSS](https://img.shields.io/badge/STYLED-CSS-E034BE?style=for-the-badge)](https://) [![USES - RECHARTS](https://img.shields.io/badge/USES-RECHARTS-red?style=for-the-badge)](https://) [![BUILT WITH - REACT](https://img.shields.io/badge/BUILT_WITH-REACT-4F28B0?style=for-the-badge)](https://)
 
-## Available Scripts
+# SportSee - front-end web development using Recharts
 
-In the project directory, you can run:
+SportSee is an application dedicated to sports.
+It allows users to view in real time the number of sessions performed, the number of calories burned and many other information to monitor sports performance.
 
-### `npm start`
+## Skills
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- initializing a web application with ReactJS
+- creating components with React
+- developing routes for a web application with React Router
+- using Recharts to display the data 
+- API call
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- NodeJS
 
-### `npm run build`
+## Local installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- git clone https://github.com/OTH21DEV/OxanaTheis_12_20062022.git
+- npm install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Launch locally
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- npm start
+- open http://localhost:3000 to view it in the browser
 
-### `npm run eject`
+## API installation (back-end) 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- git clone https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard.git
+- read the documentation on readme to launch API with Docker or NPM
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Config React App
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- indicate the user's id in the form (actually available  12 | 18) 
+- to use mocked data or data from API , change process.env.NODE_ENV === "development" on true or false in services folder
 
-## Learn More
+## Launch in production (build)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- npm run build
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Technologies:
 
-### Code Splitting
+- HTML
+- CSS (Styled Components)
+- Javascript
+- React
+- Recharts
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Tools:
 
-### Analyzing the Bundle Size
+- Visual Studio Code
+- Git 
+- ESLint
+- Prettier
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-=======
-# OxanaTheis_12_20062022
->>>>>>> 333e8f8da4e06fe214863367832300445b47782d

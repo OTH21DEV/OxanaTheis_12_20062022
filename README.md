@@ -6,19 +6,13 @@
 SportSee is an application dedicated to sports.
 It allows users to view in real time the number of sessions performed, the number of calories burned and many other information to monitor sports performance.
 
-
-
-## Demo version
-
-https://kasa-oxanatheis.netlify.app/
-
-
 ## Skills
 
 - initializing a web application with ReactJS
 - creating components with React
 - developing routes for a web application with React Router
 - using Recharts to display the data 
+- API call
 
 
 ## Prerequisites
@@ -64,5 +58,5 @@ https://kasa-oxanatheis.netlify.app/
 - Git 
 - ESLint
 - Prettier
-- Netlify.app : server for uploading the React application
+
 

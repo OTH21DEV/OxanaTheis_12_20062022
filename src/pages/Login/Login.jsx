@@ -113,8 +113,7 @@ function Login() {
    * Change page - load dashboardpage if id exist
    */
   const routeChange = () => {
-    let path = `/user/${inputValue}`;
-    navigate(path);
+    navigate(`/user/${inputValue}`);
   };
 
   return (

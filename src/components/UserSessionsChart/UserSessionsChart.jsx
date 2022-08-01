@@ -69,6 +69,7 @@ function UserSessionsChart(props) {
    */
 
   const CustomeTooltip = ({ active, payload }) =>
+
     active ? (
       <ChartTooltip>
         <p>{payload[0].value} min</p>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/UserActivityChart/UserActivityChart.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/UserActivityChart/UserActivityChart.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from "react";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+import styled from "styled-components";
+import propTypes from "prop-types";
+
+const ChartTooltip = styled.div`
+  display: flex;
+  flex-direction: column;
+  color: white;
+  background-color: #e60000;
+  font-size: 0.6em;
+  text-align: center;
+  width: 45px;
+  height: 63px;
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 30%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding-right: 20px;
+  }
+
+  h3 {
+    padding-left: 40px;
+    font-size: 0.8em;
+    font-weight: 400;
+  }
+`;
+
+const Weight = styled.li`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #74798c;
+  font-size: 0.8em;
+
+  &amp;:before {
+    content: ".";
+    color: black;
+    display: inline-block;
+    font-size: 4em;
+    margin-right: 5px;
+    margin-bottom: 35px;
+  }
+`;
+
+const Calories = styled.li`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #74798c;
+  font-size: 0.8em;
+
+  &amp;:before {
+    content: ".";
+    color: #e60000;
+    display: inline-block;
+    font-size: 4em;
+    margin-right: 5px;
+    margin-bottom: 35px;
+  }
+`;
+
+const Activity = styled.section`
+  width: 70%;
+  height: 320px;
+  background: #fbfbfb;
+  border-radius: 5px;
+  margin-top: 40px;
+
+  @media all and (min-width: 375px) and (max-width: 1300px) {
+    width: 100%;
+  }
+
+  .recharts-responsive-container {
+    margin-left: -20px;
+  }
+`;
+
+/**
+ * Display user activity chart
+ * @param {Object} props
+ * @param {Object} props.value
+ * @param {Number} props.value.userId
+ * @param {Array} props.value.sessions
+ * @param {String} props.value.sessions[].day
+ * @param {Number} props.value.sessions[].kilogram
+ * @param {Number} props.value.sessions[].calories
+ * @returns {JSX}
+ */
+function UserActivityChart(props) {
+ 
+  /**
+   * Get just a day from complete date
+   * @param {String} day
+   * @returns {String}
+   */
+  const getDay = (day) => new Date(day).getDate();
+
+  /**
+   * Customise tooltip
+   *
+   * @param {Boolean} active Active with inital value of false / becomes true when hover on barchart
+   * @param {Array} payload Payload contains data to be displayed on hover
+   * @returns {JSX || null}
+   */
+  const CustomeTooltip = ({ active, payload }) =>
+    active ? (
+      &lt;ChartTooltip>
+        &lt;p>{payload[0].value}kg&lt;/p>
+        &lt;p>{payload[1].value}kCal&lt;/p>
+      &lt;/ChartTooltip>
+    ) : null;
+
+  return (
+    &lt;Activity>
+      &lt;Wrapper>
+        &lt;h3>Activité quotidienne&lt;/h3>
+        &lt;ul>
+          &lt;Weight>Poids (kg)&lt;/Weight>
+          &lt;Calories>Calories brûlées (kCal)&lt;/Calories>
+        &lt;/ul>
+      &lt;/Wrapper>
+
+      &lt;ResponsiveContainer width="100%" height="70%">
+        &lt;BarChart
+          width={800}
+          height={250}
+          data={props.value.sessions}
+          margin={{
+            top: 40,
+            right: 0,
+            left: 0,
+            bottom: 30,
+          }}
+          barSize={8}
+        >
+          &lt;CartesianGrid strokeDasharray="3 3" vertical={false} />
+          &lt;XAxis dataKey="day" stroke="#9B9EAC" tickFormatter={getDay} />
+
+          &lt;YAxis yAxisId="left" orientation="left" stroke="#282D30" axisLine={false} tickLine={false} tick={false} />
+          &lt;YAxis domain={["dataMin-5", "dataMax+0"]} yAxisId="right" orientation="right" stroke="#9B9EAC" axisLine={false} tickLine={false} tickCount="3" tickMargin={30} />
+          &lt;Tooltip content={&lt;CustomeTooltip />} />
+
+          &lt;Bar radius={[50, 50, 0, 0]} yAxisId="right" dataKey="kilogram" fill="#282D30" />
+
+          &lt;Bar radius={[50, 50, 0, 0]} yAxisId="left" dataKey="calories" fill="#E60000" />
+        &lt;/BarChart>
+      &lt;/ResponsiveContainer>
+    &lt;/Activity>
+  );
+}
+
+UserActivityChart.propTypes = {
+  values: propTypes.shape({
+    sessions: propTypes.array.isRequired,
+    day: propTypes.string.isRequired,
+    kilogram: propTypes.number.isRequired,
+    calories: propTypes.number.isRequired,
+  }),
+};
+
+export default UserActivityChart;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="module.exports.html">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#DashBoard">DashBoard</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Login">Login</a></li><li><a href="global.html#NutritionData">NutritionData</a></li><li><a href="global.html#SideBar">SideBar</a></li><li><a href="global.html#UserActivityChart">UserActivityChart</a></li><li><a href="global.html#UserPerfomanceChart">UserPerfomanceChart</a></li><li><a href="global.html#UserScore">UserScore</a></li><li><a href="global.html#UserSessionsChart">UserSessionsChart</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Mon Aug 01 2022 22:22:02 GMT+0200 (heure d’été d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

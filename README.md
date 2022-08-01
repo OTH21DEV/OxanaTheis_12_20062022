@@ -38,7 +38,8 @@ It allows users to view in real time the number of sessions performed, the numbe
 ## Config React App
 
 - indicate the user's id in the form (actually available  12 | 18) 
-- to use mocked data or data from API , change process.env.NODE_ENV === "development" on true or false in services folder
+- to use mocked data, add in url "?mocked" (ex: http://localhost:3002/user/12?mocked ) in services folder
+
 
 ## Launch in production (build)
 

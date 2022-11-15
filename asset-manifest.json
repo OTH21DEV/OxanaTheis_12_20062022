@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/OxanaTheis_12_20062022/static/css/main.e6c13ad2.css",
+    "main.js": "/OxanaTheis_12_20062022/static/js/main.8bafe7e0.js",
+    "static/js/787.aed80c86.chunk.js": "/OxanaTheis_12_20062022/static/js/787.aed80c86.chunk.js",
+    "static/media/error.svg": "/OxanaTheis_12_20062022/static/media/error.c2e004c1e455873456cbbdf07c5058fb.svg",
+    "static/media/applaud-icon.png": "/OxanaTheis_12_20062022/static/media/applaud-icon.3074b27f6985ff46643d.png",
+    "static/media/logo.svg": "/OxanaTheis_12_20062022/static/media/logo.837414860efdf652f26ae7be654e06c5.svg",
+    "static/media/icon_swim.svg": "/OxanaTheis_12_20062022/static/media/icon_swim.e26dba434236828a108a786d8215cd31.svg",
+    "static/media/icon_cycle.svg": "/OxanaTheis_12_20062022/static/media/icon_cycle.d516c0e89dbb3aaab23afac6a130ca06.svg",
+    "static/media/carbs-icon.svg": "/OxanaTheis_12_20062022/static/media/carbs-icon.aa0e74661df8c71ea59cbe777ac24615.svg",
+    "static/media/fat-icon.svg": "/OxanaTheis_12_20062022/static/media/fat-icon.65446301bd73434d6cc14531d8ff38ad.svg",
+    "static/media/protein-icon.svg": "/OxanaTheis_12_20062022/static/media/protein-icon.c285979616f56dc9dfa457e51c583d68.svg",
+    "static/media/icon_zen.svg": "/OxanaTheis_12_20062022/static/media/icon_zen.6c31a2775a609d06fd5d99eb347250ed.svg",
+    "index.html": "/OxanaTheis_12_20062022/index.html",
+    "static/media/calories-icon.svg": "/OxanaTheis_12_20062022/static/media/calories-icon.5db5a3aff9bd8f441f49792782c8262e.svg",
+    "static/media/icon_fit.svg": "/OxanaTheis_12_20062022/static/media/icon_fit.4fe7fb9fe3554121b3d42dcb489eefd0.svg",
+    "main.e6c13ad2.css.map": "/OxanaTheis_12_20062022/static/css/main.e6c13ad2.css.map",
+    "main.8bafe7e0.js.map": "/OxanaTheis_12_20062022/static/js/main.8bafe7e0.js.map",
+    "787.aed80c86.chunk.js.map": "/OxanaTheis_12_20062022/static/js/787.aed80c86.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.8bafe7e0.js"
+  ]
+}

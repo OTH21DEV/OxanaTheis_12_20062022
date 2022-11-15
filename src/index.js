@@ -4,20 +4,20 @@ import "./index.css";
 import Login from "./pages/Login/Login";
 import DashBoard from "./pages/DashBoard/DashBoard";
 import Error from "./components/Error/Error";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route,HashRouter } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <Router>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Login />}></Route>
         <Route path="/user/:id" element={<DashBoard />}></Route>
         <Route path="*" element={<Error />}></Route>
       </Routes>
-    </Router>
+    </HashRouter>
   </React.StrictMode>
 );
 

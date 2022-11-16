@@ -34,11 +34,20 @@ export default class GetData {
       this.userPerformance = USER_PERFORMANCE.find((element) => element.userId === this.id);
       return;
     }
+//https://sportsee-p12.herokuapp.com/ 
 
+/*
     const userEndpoint = axios.get(`http://localhost:3000/user/${this.id}`);
     const activityEndpoint = axios.get(`http://localhost:3000/user/${this.id}/activity`);
     const sessionsEndpoint = axios.get(`http://localhost:3000/user/${this.id}/average-sessions`);
     const performanceEndpoint = axios.get(`http://localhost:3000/user/${this.id}/performance`);
+*/
+
+const userEndpoint = axios.get(`https://sportsee-p12.herokuapp.com/user/${this.id}`);
+const activityEndpoint = axios.get(`https://sportsee-p12.herokuapp.com/user/${this.id}/activity`);
+const sessionsEndpoint = axios.get(`https://sportsee-p12.herokuapp.com/user/${this.id}/average-sessions`);
+const performanceEndpoint = axios.get(`https://sportsee-p12.herokuapp.com/user/${this.id}/performance`);
+
 
     return await axios
       .all([userEndpoint, activityEndpoint, sessionsEndpoint, performanceEndpoint])

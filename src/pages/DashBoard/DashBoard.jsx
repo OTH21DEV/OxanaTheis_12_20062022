@@ -119,8 +119,9 @@ function DashBoard() {
   }, []);
 
   let pathArray = window.location.pathname.split("/");
-  let pathId = pathArray[2];
+  let pathId = pathArray[3];
   console.log(pathId)
+  console.log(pathArray)
 
   if (!userData || pathId != id) {
     return <Error></Error>;

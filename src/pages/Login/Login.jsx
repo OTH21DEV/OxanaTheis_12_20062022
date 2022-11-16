@@ -113,9 +113,9 @@ function Login() {
    * Change page - load dashboardpage if id exist
    */
   const routeChange = () => {
- //   navigate(`/user/${inputValue}`);
+  navigate(`/user/${inputValue}`);
 
-    navigate(`https://sportsee-p12.herokuapp.com/user/${inputValue}`);
+ //   navigate(`https://sportsee-p12.herokuapp.com/user/${inputValue}`);
   };
 
   return (

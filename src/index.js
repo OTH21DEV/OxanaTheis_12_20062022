@@ -14,7 +14,7 @@ root.render(
     <HashRouter>
       <Routes>
         <Route path="/" element={<Login />}></Route>
-        <Route path="#/user/:id" element={<DashBoard />}></Route>
+        <Route path="#/https://sportsee-p12.herokuapp.com/user/:id" element={<DashBoard />}></Route>
         <Route path="*" element={<Error />}></Route>
       </Routes>
     </HashRouter>

@@ -43,10 +43,10 @@ export default class GetData {
     const performanceEndpoint = axios.get(`http://localhost:3000/user/${this.id}/performance`);
 */
 
-const userEndpoint = axios.get(`http://cors.io/?https://sportsee-p12.herokuapp.com/user/${this.id}`);
-const activityEndpoint = axios.get(`http://cors.io/?https://sportsee-p12.herokuapp.com/user/${this.id}/activity`);
-const sessionsEndpoint = axios.get(`http://cors.io/?https://sportsee-p12.herokuapp.com/user/${this.id}/average-sessions`);
-const performanceEndpoint = axios.get(`http://cors.io/?https://sportsee-p12.herokuapp.com/user/${this.id}/performance`);
+const userEndpoint = axios.get(`https://sportsee-p12.herokuapp.com/user/${this.id}`);
+const activityEndpoint = axios.get(`https://sportsee-p12.herokuapp.com/user/${this.id}/activity`);
+const sessionsEndpoint = axios.get(`https://sportsee-p12.herokuapp.com/user/${this.id}/average-sessions`);
+const performanceEndpoint = axios.get(`https://sportsee-p12.herokuapp.com/user/${this.id}/performance`);
 
 
     return await axios

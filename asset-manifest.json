@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/OxanaTheis_12_20062022/static/css/main.e6c13ad2.css",
-    "main.js": "/OxanaTheis_12_20062022/static/js/main.64ab583e.js",
+    "main.js": "/OxanaTheis_12_20062022/static/js/main.6d13fdc5.js",
     "static/js/787.aed80c86.chunk.js": "/OxanaTheis_12_20062022/static/js/787.aed80c86.chunk.js",
     "static/media/error.svg": "/OxanaTheis_12_20062022/static/media/error.c2e004c1e455873456cbbdf07c5058fb.svg",
     "static/media/applaud-icon.png": "/OxanaTheis_12_20062022/static/media/applaud-icon.3074b27f6985ff46643d.png",
@@ -16,11 +16,11 @@
     "static/media/calories-icon.svg": "/OxanaTheis_12_20062022/static/media/calories-icon.5db5a3aff9bd8f441f49792782c8262e.svg",
     "static/media/icon_fit.svg": "/OxanaTheis_12_20062022/static/media/icon_fit.4fe7fb9fe3554121b3d42dcb489eefd0.svg",
     "main.e6c13ad2.css.map": "/OxanaTheis_12_20062022/static/css/main.e6c13ad2.css.map",
-    "main.64ab583e.js.map": "/OxanaTheis_12_20062022/static/js/main.64ab583e.js.map",
+    "main.6d13fdc5.js.map": "/OxanaTheis_12_20062022/static/js/main.6d13fdc5.js.map",
     "787.aed80c86.chunk.js.map": "/OxanaTheis_12_20062022/static/js/787.aed80c86.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.64ab583e.js"
+    "static/js/main.6d13fdc5.js"
   ]
 }

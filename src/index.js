@@ -11,13 +11,13 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <HashRouter>
+    <Router>
       <Routes>
         <Route path="/" element={<Login />}></Route>
         <Route path="/user/:id" element={<DashBoard />}></Route>
         <Route path="*" element={<Error />}></Route>
       </Routes>
-    </HashRouter>
+    </Router>
   </React.StrictMode>
 );
 

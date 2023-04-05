@@ -106,7 +106,7 @@ const ForgotPass = styled.a`
  * @returns {JSX}
  */
 function Login() {
-  const [inputValue, setInputValue] = useState();
+  const [inputValue, setInputValue] = useState('12');
   let navigate = useNavigate();
 
   /**
@@ -133,7 +133,7 @@ function Login() {
 
                 <InputBox>
                   <div className="input">
-                    <input required onChange={(e) => setInputValue(e.target.value)}></input>
+                    <input value={inputValue} required onChange={(e) => setInputValue(e.target.value)}></input>
 
                     <Label>UserID</Label>
                   </div>

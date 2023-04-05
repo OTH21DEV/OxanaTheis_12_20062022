@@ -19,6 +19,11 @@ It allows users to view in real time the number of sessions performed, the numbe
 
 - NodeJS
 
+
+## View in production (build)
+
+- login with user id : 12 or 18
+
 ## Local installation
 
 - git clone https://github.com/OTH21DEV/OxanaTheis_12_20062022.git
@@ -40,10 +45,6 @@ It allows users to view in real time the number of sessions performed, the numbe
 - indicate the user's id in the form (actually available  12 | 18) 
 - to use mocked data, add in url "?mocked=true" (ex: http://localhost:3002/user/12?mocked=true ) 
 
-
-## Launch in production (build)
-
-- npm run build
 
 ## Technologies:
 
